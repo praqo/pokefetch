@@ -1,33 +1,22 @@
-import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import useFetch from "../shared/useFetch";
 
 function Search() {
   const router = useRouter();
-  const [fetchedData, setFetchedData] = useState([]);
-  let url = "https://pokeapi.co/api/v2/pokemon/";
+  let url = router.query.pokemon
+    ? `https://pokeapi.co/api/v2/pokemon/${router.query.pokemon}`
+    : null;
+  const { isLoading, data, isError } = useFetch(url);
 
-  async function fetchData(searchTerm) {
-    try {
-      const response = await fetch(url + searchTerm);
-      const data = await response.json();
-      console.log(data);
-      setFetchedData(data);
-    } catch (error) {
-      console.log(error);
-    }
+  if (isLoading) {
+    return <h2>...Loading</h2>;
   }
 
-  useEffect(() => {
-    if (router.query.pokemon) {
-      fetchData(router.query.pokemon);
-    }
-  }, [router.query]);
-
-  if (fetchedData.length < 1) {
+  if (data.length < 1 || isError) {
     return <h1>no results</h1>;
   }
 
-  return <h1>{JSON.stringify(fetchedData)}</h1>;
+  return <h1>{JSON.stringify(data)}</h1>;
 }
 
 export default Search;
