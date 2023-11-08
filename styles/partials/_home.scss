@@ -1,0 +1,50 @@
+.hero {
+  background-color: $purple-500;
+  color: $red-500;
+}
+
+.hero-content {
+  display: flex;
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-title {
+  font-size: 85px;
+  text-transform: uppercase;
+}
+
+.hero-form {
+  display: flex;
+  width: 100%;
+
+  input {
+    flex: 1 1 auto;
+  }
+
+  button {
+    background-color: $red-500;
+    color: $white-500;
+    font-size: 19px;
+  }
+}
+
+.hero-right {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.hero-image {
+  max-width: 100%;
+}
+
+@media (max-width: 750px) {
+  .hero-content {
+    display: block;
+  }
+}

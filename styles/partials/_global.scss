@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: $white-500;
+  color: $black-500;
+  font-family: "PT Sans Narrow", sans-serif;
+}
+
+input[type="text"] {
+  border: none;
+  font-size: 19px;
+  padding: 11px 5px;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+  padding: 3px 7px;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 15px;
+}
