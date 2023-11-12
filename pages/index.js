@@ -8,6 +8,13 @@ export default function Home() {
 
   function handleSubmit(e) {
     e.preventDefault();
+
+    if (!searchText.replace(/ /g, '')) {
+      setSearchText('');
+
+      return;
+    }
+
     router.push(`/search?pokemon=${searchText}`);
   }
 
@@ -40,6 +47,7 @@ export default function Home() {
                     type='text'
                     value={searchText}
                     onChange={(e) => setSearchText(e.currentTarget.value)}
+                    required
                   />
                   <button type='submit'>search</button>
                 </form>
