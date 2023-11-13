@@ -11,6 +11,7 @@ export default function Home() {
 
     if (!searchText.replace(/ /g, '')) {
       setSearchText('');
+      console.log(searchText);
 
       return;
     }
