@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import useFetch from "../../shared/useFetch";
+import CharacterInfo from "./CharacterInfo";
 
 function Pokemon() {
   const router = useRouter();
@@ -29,14 +30,7 @@ function Pokemon() {
         </div>
         <img src={data.sprites.front_default} alt={data.name} />
       </div>
-      <div className="character-info">
-        <div className="character-category"></div>
-        <div className="character-category"></div>
-        <div className="character-category"></div>
-        <div className="character-category"></div>
-        <div className="character-category"></div>
-        <div className="character-category"></div>
-      </div>
+      <CharacterInfo data={data} />
     </>
   );
 }
