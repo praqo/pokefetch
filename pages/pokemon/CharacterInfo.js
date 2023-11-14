@@ -4,7 +4,7 @@ import useFetch from "../../shared/useFetch";
 function CharacterInfo({ data }) {
   const [category, SetCategory] = useState("");
   const handleClick = (e) => {
-    console.log(e.currentTarget.dataset.category);
+    alert(e.currentTarget.dataset.category);
   };
 
   if (category) {
@@ -20,11 +20,41 @@ function CharacterInfo({ data }) {
       >
         Abilities
       </div>
-      <div className="character-category"></div>
-      <div className="character-category"></div>
-      <div className="character-category"></div>
-      <div className="character-category"></div>
-      <div className="character-category"></div>
+      <div
+        className="character-category"
+        data-category="held_items"
+        onClick={handleClick}
+      >
+        Held Items
+      </div>
+      <div
+        className="character-category"
+        data-category="moves"
+        onClick={handleClick}
+      >
+        Moves
+      </div>
+      <div
+        className="character-category"
+        data-category="stats"
+        onClick={handleClick}
+      >
+        Stats
+      </div>
+      <div
+        className="character-category"
+        data-category="location_area_encounters"
+        onClick={handleClick}
+      >
+        Locations
+      </div>
+      <div
+        className="character-category"
+        data-category="game_indices"
+        onClick={handleClick}
+      >
+        Game Indeces
+      </div>
     </div>
   );
 }
