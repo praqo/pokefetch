@@ -1,0 +1,38 @@
+import { useRouter } from "next/router";
+import useFetch from "../../shared/useFetch";
+import CharacterInfo from "./CharacterInfo";
+
+function Pokemon() {
+  const router = useRouter();
+  let url = router.query.name
+    ? `https://pokeapi.co/api/v2/pokemon/${router.query.name}`
+    : null;
+
+  const { isLoading, data } = useFetch(url);
+
+  console.log(data);
+
+  if (isLoading) {
+    return <h2>...Loading</h2>;
+  }
+
+  return (
+    <>
+      <div className="character-hero">
+        <div className="character-hero-left">
+          <h1>Pokemon {data.name}</h1>
+        </div>
+        <div className="hero-character-right">
+          <div
+            className="character-image"
+            style={{ backgroundImage: `url(${data.sprites.front_default})` }}
+          ></div>
+        </div>
+        <img src={data.sprites.front_default} alt={data.name} />
+      </div>
+      <CharacterInfo data={data} />
+    </>
+  );
+}
+
+export default Pokemon;
