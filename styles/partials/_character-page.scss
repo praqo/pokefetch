@@ -1,12 +1,28 @@
 .character-hero {
-  background-color: $green-500;
-  min-height: 50vh;
+  background-color: $black-500;
+  color: $white-500;
+  min-height: 315px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.character-name {
+  font-size: 65px;
+  text-transform: uppercase;
+}
+
+.character-description {
+  font-size: 33px;
+  text-transform: uppercase;
 }
 
 .character-image {
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 300px;
-  width: 300px;
+  width: 200px;
+}
+
+@media (max-width: 475px) {
+  .character-name {
+    font-size: 37px;
+  }
 }

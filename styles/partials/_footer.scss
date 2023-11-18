@@ -1,0 +1,21 @@
+.main-footer {
+  padding: 50px 15px;
+}
+
+.footer-link {
+  color: $black-500;
+  font-family: Biotif, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 17px;
+  line-height: 0.5rem;
+  margin: 0 15px 0 0;
+  padding-top: 0.11163rem;
+  padding-bottom: 0.38838rem;
+  margin-bottom: -0.5rem;
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}

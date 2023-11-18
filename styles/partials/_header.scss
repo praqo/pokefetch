@@ -1,0 +1,44 @@
+.main-header {
+  background-color: $purple-500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90px;
+}
+
+.header-right {
+  width: 33%;
+}
+
+.header-search {
+  width: 33%;
+}
+
+.logo {
+  width: 150px;
+  position: relative;
+  height: 100%;
+}
+
+.logo-link {
+  display: block;
+  position: absolute;
+  top: 0;
+  background-color: $purple-500;
+  border-radius: 50%;
+}
+
+.logo-image {
+  display: block;
+  width: 100%;
+}
+
+@media (max-width: 450px) {
+  .main-header .hero-form {
+    padding: 5px;
+  }
+
+  .main-header .hero-form button {
+    font-size: 13px;
+  }
+}

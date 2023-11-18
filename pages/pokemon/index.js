@@ -20,15 +20,17 @@ function Pokemon() {
     <>
       <div className="character-hero">
         <div className="character-hero-left">
-          <h1>Pokemon {data.name}</h1>
+          <h3 className="character-name">{data.name}</h3>
+          <h3 className="character-description">height {data.height}</h3>
+          <h3 className="character-description">weight {data.weight}</h3>
         </div>
         <div className="hero-character-right">
-          <div
+          <img
             className="character-image"
-            style={{ backgroundImage: `url(${data.sprites.front_default})` }}
-          ></div>
+            src={data.sprites.front_default}
+            alt={data.name}
+          />
         </div>
-        <img src={data.sprites.front_default} alt={data.name} />
       </div>
       <CharacterInfo data={data} />
     </>
