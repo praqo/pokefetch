@@ -1,22 +1,41 @@
 import { useRouter } from "next/router";
-import useFetch from "../shared/useFetch";
+import Link from "next/link";
+import { pokemonNames } from "../shared/pokemonNames";
 
 function Search() {
   const router = useRouter();
-  let url = router.query.pokemon
-    ? `https://pokeapi.co/api/v2/pokemon/${router.query.pokemon}`
-    : null;
-  const { isLoading, data, isError } = useFetch(url);
+  const searchString = router.query.pokemon;
+  const matchArr = pokemonNames.filter((item) =>
+    item.name.includes(searchString)
+  );
 
-  if (isLoading) {
-    return <h2>...Loading</h2>;
-  }
+  console.log(matchArr);
 
-  if (data.length < 1 || isError) {
+  if (matchArr < 1) {
     return <h1>no results</h1>;
   }
 
-  return <h1>{JSON.stringify(data)}</h1>;
+  return (
+    <div>
+      {matchArr.map((item, index) => {
+        const pokemonId = item.url
+          .slice(item.url.indexOf("/pokemon/"))
+          .slice(9, -1);
+
+        return (
+          <Link href={`/pokemon?name=${item.name}`}>
+            <a>
+              <h5>{item.name}</h5>
+              <img
+                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`}
+                alt=""
+              />
+            </a>
+          </Link>
+        );
+      })}
+    </div>
+  );
 }
 
 export default Search;
