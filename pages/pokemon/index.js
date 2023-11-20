@@ -10,8 +10,6 @@ function Pokemon() {
 
   const { isLoading, data } = useFetch(url);
 
-  console.log(data);
-
   if (isLoading) {
     return <h2>...Loading</h2>;
   }

@@ -1,14 +1,27 @@
 import { useState, useEffect } from "react";
+import Category from "./Category";
 import useFetch from "../../shared/useFetch";
 
 function CharacterInfo({ data }) {
   const [category, SetCategory] = useState("");
+  const [fetchData, setFetchedData] = useState([]);
   const handleClick = (e) => {
-    alert(e.currentTarget.dataset.category);
+    SetCategory(e.currentTarget.dataset.category);
+  };
+
+  const goBack = () => {
+    SetCategory("");
   };
 
   if (category) {
-    return <div>{data.category}</div>;
+    return (
+      <div className="category">
+        <span className="go-back" onClick={goBack}>
+          go back
+        </span>
+        <Category data={data} category={category} />
+      </div>
+    );
   }
 
   return (

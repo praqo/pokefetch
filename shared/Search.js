@@ -10,12 +10,13 @@ function Search() {
 
     if (!searchText.replace(/ /g, "")) {
       setSearchText("");
-      console.log(searchText);
 
       return;
     }
 
     router.push(`/search?pokemon=${searchText}`);
+
+    setSearchText("");
   }
   return (
     <form onSubmit={handleSubmit} className="hero-form">

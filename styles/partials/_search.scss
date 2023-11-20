@@ -1,10 +1,27 @@
 .search-content {
   background-color: $yellow-500;
   flex: 1 1 auto;
+  padding: 0 60px 60px 60px;
+}
+
+.no-results {
+  text-align: center;
+}
+
+.search-text {
+  margin: 45px 0;
+}
+
+.no-results-image {
+  width: 100%;
+  max-width: 200px;
+}
+
+.search-content-grid {
+  flex: 1 1 auto;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  padding: 60px;
 }
 
 .search-item {
@@ -50,7 +67,7 @@
 
 @media (max-width: 535px) {
   .search-content {
-    padding: 60px 35px;
+    padding: 0 35px;
   }
   .search-item {
     width: calc(100% / 2);
