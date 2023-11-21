@@ -12,7 +12,7 @@ function Search() {
   if (matchArr < 1) {
     return (
       <div className="search-content no-results">
-        <h2 className="search-text">No Results For "{searchString}"</h2>
+        <h2 className="search-text">No Results For {`"${searchString}"`}</h2>
         <img
           className="no-results-image"
           src="/pokefetch/images/no-result.png"
@@ -25,7 +25,9 @@ function Search() {
   return (
     <>
       <div className="search-content">
-        <h2 className="search-text">Search Results For "{searchString}"</h2>
+        <h2 className="search-text">
+          Search Results For {`"${searchString}"`}
+        </h2>
         <div className="search-content-grid">
           {matchArr.map((item, index) => {
             const pokemonId = item.url
