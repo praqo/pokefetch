@@ -18,3 +18,40 @@
   color: $white-500;
   font-weight: bold;
 }
+
+.category {
+  flex: 1 1 auto;
+}
+
+.category-header {
+  display: flex;
+  align-items: center;
+}
+
+.back-button {
+  cursor: pointer;
+  font-size: 37px;
+  line-height: 0.3;
+  transition: color 0.4s ease-in-out;
+}
+.back-button:hover {
+  color: $green-500;
+}
+
+.category-title {
+  display: flex;
+  align-items: center;
+  font-size: 47px;
+  text-transform: capitalize;
+}
+
+.category-item {
+  font-size: 19px;
+}
+
+@media (max-width: 490px) {
+  .character-info {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 200px);
+  }
+}

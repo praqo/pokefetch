@@ -14,10 +14,15 @@ function CharacterInfo({ data }) {
   if (category) {
     return (
       <div className="category">
-        <span className="go-back" onClick={goBack}>
-          go back
-        </span>
-        <Category characterData={data} category={category} />
+        <div className="container">
+          <div className="category-header">
+            <span className="back-button" onClick={goBack} title="go back">
+              ←
+            </span>
+            <h3 className="category-title">{category}</h3>
+          </div>
+          <Category characterData={data} category={category} />
+        </div>
       </div>
     );
   }
@@ -73,46 +78,57 @@ function CharacterInfo({ data }) {
 function Category({ characterData, category }) {
   if (category === "abilities") {
     return (
-      <div>
+      <ul className="category-list">
         {characterData[category].map((el, i) => {
-          return <h5 key={i}>{el.ability.name}</h5>;
+          return (
+            <li key={i} className="category-item">
+              {el.ability.name}
+            </li>
+          );
         })}
-      </div>
+      </ul>
     );
   }
 
   if (category === "held_items") {
     return (
-      <div>
+      <ul className="category-list">
         {characterData[category].map((el, i) => {
-          return <h5 key={i}>{el.item.name}</h5>;
+          return (
+            <li key={i} className="category-item">
+              {el.item.name}
+            </li>
+          );
         })}
-      </div>
+      </ul>
     );
   }
 
   if (category === "moves") {
     return (
-      <div>
+      <ul className="category-list">
         {characterData[category].map((el, i) => {
-          return <h5 key={i}>{el.move.name}</h5>;
+          return (
+            <li key={i} className="category-item">
+              {el.move.name}
+            </li>
+          );
         })}
-      </div>
+      </ul>
     );
   }
 
   if (category === "stats") {
     return (
-      <div>
+      <ul className="category-list">
         {characterData[category].map((el, i) => {
           return (
-            <h5 key={i}>
-              {el.stat.name}
-              {el.base_stat}
-            </h5>
+            <li key={i} className="category-item">
+              {el.stat.name} {el.base_stat}
+            </li>
           );
         })}
-      </div>
+      </ul>
     );
   }
 
@@ -125,26 +141,29 @@ function Category({ characterData, category }) {
     }
 
     return (
-      <div>
+      <ul className="category-list">
         {data.map((el, i) => {
-          return <h4 key={i}>{el.location_area.name}</h4>;
+          return (
+            <li key={i} className="category-item">
+              {el.location_area.name}
+            </li>
+          );
         })}
-      </div>
+      </ul>
     );
   }
 
   if (category === "game_indices") {
     return (
-      <div>
+      <ul className="category-list">
         {characterData[category].map((el, i) => {
           return (
-            <h5 key={i}>
-              {el.game_index}
-              {el.version.name}
-            </h5>
+            <li key={i} className="category-item">
+              {el.game_index} {el.version.name}
+            </li>
           );
         })}
-      </div>
+      </ul>
     );
   }
 }
