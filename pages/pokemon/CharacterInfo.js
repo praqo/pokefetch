@@ -3,7 +3,6 @@ import useFetch from "../../shared/useFetch";
 
 function CharacterInfo({ data }) {
   const [category, SetCategory] = useState("");
-  const [fetchData, setFetchedData] = useState([]);
   const handleClick = (e) => {
     SetCategory(e.currentTarget.dataset.category);
   };
@@ -18,7 +17,7 @@ function CharacterInfo({ data }) {
         <span className="go-back" onClick={goBack}>
           go back
         </span>
-        <Category data={data} category={category} />
+        <Category characterData={data} category={category} />
       </div>
     );
   }
@@ -71,11 +70,11 @@ function CharacterInfo({ data }) {
   );
 }
 
-function Category({ data, category }) {
+function Category({ characterData, category }) {
   if (category === "abilities") {
     return (
       <div>
-        {data[category].map((el, i) => {
+        {characterData[category].map((el, i) => {
           return <h5 key={i}>{el.ability.name}</h5>;
         })}
       </div>
@@ -85,7 +84,7 @@ function Category({ data, category }) {
   if (category === "held_items") {
     return (
       <div>
-        {data[category].map((el, i) => {
+        {characterData[category].map((el, i) => {
           return <h5 key={i}>{el.item.name}</h5>;
         })}
       </div>
@@ -95,7 +94,7 @@ function Category({ data, category }) {
   if (category === "moves") {
     return (
       <div>
-        {data[category].map((el, i) => {
+        {characterData[category].map((el, i) => {
           return <h5 key={i}>{el.move.name}</h5>;
         })}
       </div>
@@ -105,7 +104,7 @@ function Category({ data, category }) {
   if (category === "stats") {
     return (
       <div>
-        {data[category].map((el, i) => {
+        {characterData[category].map((el, i) => {
           return (
             <h5 key={i}>
               {el.stat.name}
@@ -118,13 +117,26 @@ function Category({ data, category }) {
   }
 
   if (category === "location_area_encounters") {
-    return <div>hi</div>;
+    const url = characterData[category];
+    const { isLoading, data, isError } = useFetch(url);
+    console.log(data);
+    if (isLoading) {
+      return <h4>...loading</h4>;
+    }
+
+    return (
+      <div>
+        {data.map((el, i) => {
+          return <h4 key={i}>{el.location_area.name}</h4>;
+        })}
+      </div>
+    );
   }
 
   if (category === "game_indices") {
     return (
       <div>
-        {data[category].map((el, i) => {
+        {characterData[category].map((el, i) => {
           return (
             <h5 key={i}>
               {el.game_index}
