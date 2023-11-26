@@ -133,23 +133,8 @@ function Category({ characterData, category }) {
   }
 
   if (category === "location_area_encounters") {
-    const url = characterData[category];
-    const { isLoading, data, isError } = useFetch(url);
-    console.log(data);
-    if (isLoading) {
-      return <h4>...loading</h4>;
-    }
-
     return (
-      <ul className="category-list">
-        {data.map((el, i) => {
-          return (
-            <li key={i} className="category-item">
-              {el.location_area.name}
-            </li>
-          );
-        })}
-      </ul>
+      <LocationSection characterData={characterData} category={category} />
     );
   }
 
@@ -166,6 +151,26 @@ function Category({ characterData, category }) {
       </ul>
     );
   }
+}
+
+function LocationSection({ characterData, category }) {
+  const url = characterData[category];
+  const { isLoading, data, isError } = useFetch(url);
+  if (isLoading) {
+    return <h4>...loading</h4>;
+  }
+
+  return (
+    <ul className="category-list">
+      {data.map((el, i) => {
+        return (
+          <li key={i} className="category-item">
+            {el.location_area.name}
+          </li>
+        );
+      })}
+    </ul>
+  );
 }
 
 export default CharacterInfo;
