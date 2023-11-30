@@ -34,6 +34,7 @@
   line-height: 0.3;
   transition: color 0.4s ease-in-out;
 }
+
 .back-button:hover {
   color: $green-500;
 }
@@ -43,6 +44,11 @@
   align-items: center;
   font-size: 47px;
   text-transform: capitalize;
+  word-break: break-word;
+}
+
+.category-list {
+  margin: 0 0 0 15px;
 }
 
 .category-item {

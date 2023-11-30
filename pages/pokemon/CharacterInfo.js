@@ -76,6 +76,10 @@ function CharacterInfo({ data }) {
 }
 
 function Category({ characterData, category }) {
+  if (characterData[category].length === 0) {
+    return <h4>none</h4>;
+  }
+
   if (category === "abilities") {
     return (
       <ul className="category-list">
@@ -158,6 +162,10 @@ function LocationSection({ characterData, category }) {
   const { isLoading, data, isError } = useFetch(url);
   if (isLoading) {
     return <h4>...loading</h4>;
+  }
+
+  if (data.length === 0) {
+    return <h4>none</h4>;
   }
 
   return (
