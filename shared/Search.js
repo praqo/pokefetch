@@ -14,7 +14,7 @@ function Search() {
       return;
     }
 
-    router.push(`/search?pokemon=${searchText}`);
+    router.push(`/search?pokemon=${searchText.toLowerCase()}`);
 
     setSearchText("");
   }
