@@ -6,6 +6,7 @@ function Search() {
   const router = useRouter();
 
   function handleSubmit(e) {
+    console.log(searchText.split(""));
     e.preventDefault();
 
     if (!searchText.replace(/ /g, "")) {
@@ -14,7 +15,7 @@ function Search() {
       return;
     }
 
-    router.push(`/search?pokemon=${searchText.toLowerCase()}`);
+    router.push(`/search?pokemon=${searchText.toLowerCase().trim()}`);
 
     setSearchText("");
   }
