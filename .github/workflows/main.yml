@@ -4,7 +4,7 @@ name: CI
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
+  #  Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches: [main]
   pull_request:
@@ -37,9 +37,9 @@ jobs:
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
-          personal_token: ${{ secrets.TOKEN }}
+          personal_token: ${{ secrets.GITHUB_TOKEN }}
           external_repository: praqo/pokefetch
           publish_dir: ./out
           user_name: praqo
-          user_email: pradochris+praqo@protonmail.com
+          user_email: 142553687+praqo@users.noreply.github.com
           publish_branch: gh-pages
