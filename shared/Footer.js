@@ -3,7 +3,7 @@ function Footer() {
     <footer className='main-footer'>
       <div className='container'>
         <a
-          href='https://praqo.com/'
+          href='https://praqo.org/'
           className='footer-link'
         >
           @praqo ↗
