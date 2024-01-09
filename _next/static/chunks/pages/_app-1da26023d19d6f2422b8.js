@@ -57,7 +57,7 @@
               className: 'container',
               children: [
                 (0, a.jsx)('a', {
-                  href: 'https://praqo.com/',
+                  href: 'https://praqo.org/',
                   className: 'footer-link',
                   children: '@praqo \u2197',
                 }),
